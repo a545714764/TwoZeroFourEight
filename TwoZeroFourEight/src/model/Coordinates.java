@@ -1,6 +1,9 @@
 package model;
+
+import java.io.Serializable;
+
 //坐标类:外部状态类
-public class Coordinates {
+public class Coordinates implements Serializable {
 	private int x;
 	private int y;
 	private int value;

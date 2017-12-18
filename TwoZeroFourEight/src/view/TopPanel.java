@@ -1,47 +1,64 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import control.GameList;
+import control.GameFacade;
+import control.Caretaker;
+import control.Game;
+import control.ViewMove;
 import sun.net.www.content.image.gif;
 
 public class TopPanel extends JPanel{
-	GameList game = new GameList();
-	private static JLabel scoreLabel;
-	private static int score;
+	GameFacade facade = new GameFacade();
+	private JLabel scoreLabel;
 	private JButton backButton;
 	private JButton backTenStepButton;
+	
 	public TopPanel(){
-		scoreLabel = new JLabel(score+"分");
+		scoreLabel = new JLabel("分数为:0分");
 		backButton = new JButton("后退一步");
 		backTenStepButton = new JButton("后退十步");
+		this.add(scoreLabel);
+		this.add(backButton);
+		this.add(backTenStepButton);
+		facade.init(MainFrame.layeredPane,scoreLabel);
+		backButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				facade.restore(scoreLabel);
+			}
+		});
+		backTenStepButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				facade.restoreTenStep(scoreLabel);
+				backButton.requestFocus();
+			}
+		});
 		backButton.addKeyListener(new KeyAdapter(){
             public void keyReleased(KeyEvent e){
                 switch(e.getKeyCode()){
                 case KeyEvent.VK_DOWN: 
-                	if(game.canDown(GameList.used)){
-                		game.list();
-                	}
+                	facade.down(scoreLabel);
                 	break;
                 case KeyEvent.VK_UP: 
-                	if(game.canUp(GameList.used)){
-                		game.list();
-                	}
+                	facade.up(scoreLabel);
                 	break;
                 case KeyEvent.VK_LEFT:
-                	if(game.canLeft(GameList.used)){
-                		game.list();
-                	}
+                	facade.left(scoreLabel);
                 	break;
                 case KeyEvent.VK_RIGHT: 
-                	if(game.canRight(GameList.used)){
-                		game.list();
-                	}
+                	facade.right(scoreLabel);
                 	break;
                 default: 
            
@@ -49,8 +66,6 @@ public class TopPanel extends JPanel{
                }
             }
 		});
-		this.add(scoreLabel);
-		this.add(backButton);
-		this.add(backTenStepButton);
 	}
+	
 }

@@ -20,6 +20,21 @@ import model.Coordinates;
 public class Number32 extends JPanel {
 	private Coordinates coordinate;
 	private JLabel numberLabel;
+	public Number32(){
+		this.setLayout(new BorderLayout());
+		numberLabel = new JLabel();
+		numberLabel.setFont(new Font("Arial",Font.BOLD,60));//设置字体样式
+		//设置字体颜色,如果文本内容为"4"以上,则显示白色
+		numberLabel.setForeground(Color.WHITE);							
+		//设置字体水平居中
+		numberLabel.setHorizontalAlignment(JLabel.CENTER);		
+		//设置标签内容为2
+		numberLabel.setText("32");
+		//设置标签在容器中心
+		this.add(numberLabel,BorderLayout.CENTER);
+		//设置容器背景颜色
+		this.setBackground(new Color(187,173,160));
+	}
 	public Number32(Coordinates coordinate){
 		//设置坐标
 		this.coordinate = coordinate;
@@ -43,7 +58,7 @@ public class Number32 extends JPanel {
 		super.paintComponent(arg0);
 		Image bgImg = null;
 		 try {
-			 bgImg = ImageIO.read(new File("src/image/32.png"));
+			 bgImg = ImageIO.read(new File("TwoZeroFourEight/src/image/32.png"));
 		 } catch (IOException e) {
 			 e.printStackTrace();
 		 }

@@ -20,6 +20,21 @@ import model.Coordinates;
 public class Number2 extends JPanel {
 	private Coordinates coordinate;
 	private JLabel numberLabel;
+	public Number2(){
+		this.setLayout(new BorderLayout());
+		numberLabel = new JLabel();
+		numberLabel.setFont(new Font("Arial",Font.BOLD,60));//设置字体样式
+		//设置字体颜色
+		numberLabel.setForeground(Color.black);							
+		//设置字体水平居中
+		numberLabel.setHorizontalAlignment(JLabel.CENTER);		
+		//设置标签内容为2
+		numberLabel.setText("2");
+		//设置标签在容器中心
+		this.add(numberLabel,BorderLayout.CENTER);
+		//设置容器背景颜色
+		this.setBackground(new Color(187,173,160));
+	}
 	public Number2(Coordinates coordinate){
 		//设置坐标
 		this.coordinate = coordinate;
@@ -45,7 +60,7 @@ public class Number2 extends JPanel {
 		super.paintComponent(arg0);
 		Image bgImg = null;
 		 try {
-			 bgImg = ImageIO.read(new File("src/image/2.png"));
+			 bgImg = ImageIO.read(new File("TwoZeroFourEight/src/image/2.png"));
 		 } catch (IOException e) {
 			 e.printStackTrace();
 		 }
@@ -53,5 +68,8 @@ public class Number2 extends JPanel {
 					null);
 	}
 //	 
+	public Coordinates getCoordinates(){
+		return this.coordinate;
+	}
   
 }

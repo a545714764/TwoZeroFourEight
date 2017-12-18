@@ -7,8 +7,14 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OptionalDataException;
+import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -17,9 +23,12 @@ import javax.swing.JPanel;
 
 import model.Coordinates;
 
-public class Number0 extends JPanel {
+public class Number0 extends JPanel implements  Serializable{
 	private Coordinates coordinate;
 	private JLabel numberLabel;
+	public Number0(){
+		
+	}
 	public Number0(Coordinates coordinate){
 //		this.setSize(150,150);
 		//设置坐标
@@ -45,12 +54,23 @@ public class Number0 extends JPanel {
 		super.paintComponent(arg0);
 		Image bgImg = null;
 		 try {
-			 bgImg = ImageIO.read(new File("src/image/0.png"));
+			 bgImg = ImageIO.read(new File("TwoZeroFourEight/src/image/0.png"));
 		 } catch (IOException e) {
 			 e.printStackTrace();
 		 }
 		 arg0.drawImage(bgImg, -25, -25,
 					null);
+	}
+	
+	public Object deepClone() throws IOException,ClassNotFoundException,OptionalDataException{
+		//将对象写入流中
+		ByteArrayOutputStream bao = new ByteArrayOutputStream();
+		ObjectOutputStream oos = new ObjectOutputStream(bao);
+		oos.writeObject(this);
+		
+		ByteArrayInputStream bis = new ByteArrayInputStream(bao.toByteArray());
+		ObjectInputStream ois = new ObjectInputStream(bis);
+		return (ois.readObject());
 	}
 	 
   

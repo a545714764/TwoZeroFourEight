@@ -3,6 +3,8 @@ package view;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.io.OptionalDataException;
 
 import javax.swing.JPanel;
 
@@ -29,54 +31,26 @@ public class GamePanel extends JPanel {
 	private Number0 number0_14;
 	private Number0 number0_15;
 	
-	
-	
-	
-	private Number2 number2;
-	private Number4 number4;
-	private Number8 number8;
-	private Number16 number16;
-	private Number32 number32;
-	private Number64 number64;
-	private Number128 number128;
-	private Number256 number256;
-	private Number512 number512;
-	private Number1024 number1024;
-	private Number2048 number2048;
-	
-	
-	public GamePanel(){
-		
+	public GamePanel() throws OptionalDataException, ClassNotFoundException, IOException{
 		this.setLayout(null);
 		
-//		number0_0 = new Number0(new Coordinates(0, 0));
-//		number0_1 = new Number0(new Coordinates(0, 1));
-//		number0_2 = new Number0(new Coordinates(0, 2));
-//		number0_3 = new Number0(new Coordinates(0, 3));
-//		number0_4 = new Number0(new Coordinates(1, 0));
-//		number0_5 = new Number0(new Coordinates(1, 1));
-//		number0_6 = new Number0(new Coordinates(1, 2));
-//		number0_7 = new Number0(new Coordinates(1, 3));
-//		number0_8 = new Number0(new Coordinates(2, 0));
-//		number0_9 = new Number0(new Coordinates(2, 1));
-//		number0_10 = new Number0(new Coordinates(2, 2));
-//		number0_11 = new Number0(new Coordinates(2, 3));
-//		number0_12 = new Number0(new Coordinates(3, 0));
-//		number0_13 = new Number0(new Coordinates(3, 1));
-//		number0_14 = new Number0(new Coordinates(3, 2));
-//		number0_15 = new Number0(new Coordinates(3, 3));
-//
-//		number2 = new Number2(new Coordinates(0, 1));
-//		number4 = new Number4(new Coordinates(0, 2));
-//		number8 = new Number8(new Coordinates(0, 3));
-//		number16 = new Number16(new Coordinates(1, 0));
-//		number32 = new Number32(new Coordinates(1, 1));
-//		number64 = new Number64(new Coordinates(1, 2));
-//		number128 = new Number128(new Coordinates(1, 3));
-//		number256 = new Number256(new Coordinates(2, 0));
-//		number512 = new Number512(new Coordinates(2, 1));
-//		number1024 = new Number1024(new Coordinates(2, 2));
-//		number2048 = new Number2048(new Coordinates(2, 3));
+		number0_0 = new Number0(new Coordinates(0, 0,0));
+//		number0_1 = new Number0(new Coordinates(0, 1,0));
+		number0_1 = (Number0) number0_0.deepClone();
+		number0_2 = (Number0) number0_0.deepClone();
+		number0_3 = (Number0) number0_0.deepClone();
+		number0_4 = (Number0) number0_0.deepClone();
+		number0_5 = (Number0) number0_0.deepClone();
+		number0_6 = (Number0) number0_0.deepClone();
+		number0_7 = (Number0) number0_0.deepClone();
+		number0_8 = (Number0) number0_0.deepClone();
+		number0_9 = (Number0) number0_0.deepClone();
+		number0_10 = (Number0) number0_0.deepClone();
+		number0_11 = (Number0) number0_0.deepClone();
+		number0_12 = (Number0) number0_0.deepClone();
+		number0_13 = (Number0) number0_0.deepClone();
+		number0_14 = (Number0) number0_0.deepClone();
+		number0_15 = (Number0) number0_0.deepClone();
 		
 		number0_0.setBounds(10, 10, 100, 100);
 		number0_1.setBounds(115, 10, 100, 100);
@@ -116,23 +90,7 @@ public class GamePanel extends JPanel {
 		this.add(number0_13);
 		this.add(number0_14);
 		this.add(number0_15);
-		
-
-		
-//		this.add(number4);
-//		this.add(number8);
-//		this.add(number16);
-//		this.add(number32);
-//		this.add(number64);
-//		this.add(number128);
-//		this.add(number256);
-//		this.add(number512);
-//		this.add(number1024);
-//		this.add(number2048);
-		
-		
 		this.setBackground(new Color(187,173,160));
-//		this.setOpaque(false);
 		this.setVisible(true);
 	}
 	
