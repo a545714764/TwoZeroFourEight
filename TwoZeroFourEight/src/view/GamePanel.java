@@ -8,8 +8,7 @@ import java.io.OptionalDataException;
 
 import javax.swing.JPanel;
 
-
-import model.Coordinates;
+import game.Coordinates;
 import numberPanel.*;
 
 public class GamePanel extends JPanel {
@@ -35,7 +34,6 @@ public class GamePanel extends JPanel {
 		this.setLayout(null);
 		
 		number0_0 = new Number0(new Coordinates(0, 0,0));
-//		number0_1 = new Number0(new Coordinates(0, 1,0));
 		number0_1 = (Number0) number0_0.deepClone();
 		number0_2 = (Number0) number0_0.deepClone();
 		number0_3 = (Number0) number0_0.deepClone();

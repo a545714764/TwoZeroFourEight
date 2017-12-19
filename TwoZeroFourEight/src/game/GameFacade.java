@@ -1,10 +1,9 @@
-package control;
+package game;
 
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 
-import model.Coordinates;
 import view.MainFrame;
 
 public class GameFacade {
@@ -36,10 +35,7 @@ public class GameFacade {
     		view.move(Game.used,MainFrame.layeredPane);
     		game.addScore();
     		scoreLabel.setText("分数为:"+game.getScore()+"分");
-    		
     		sentence(scoreLabel);
-    		
-    		
     	}
 	}
 	
@@ -50,10 +46,7 @@ public class GameFacade {
     		view.move(Game.used,MainFrame.layeredPane);
     		game.addScore();
     		scoreLabel.setText("分数为:"+game.getScore()+"分");
-    		
     		sentence(scoreLabel);
-    		
-    		
     	}
 	}
 	
@@ -64,7 +57,6 @@ public class GameFacade {
     		view.move(Game.used,MainFrame.layeredPane);
     		game.addScore();
     		scoreLabel.setText("分数为:"+game.getScore()+"分");
-    		
     		sentence(scoreLabel);
     	}
 	}
@@ -76,9 +68,7 @@ public class GameFacade {
     		view.move(Game.used,MainFrame.layeredPane);
     		game.addScore();
     		scoreLabel.setText("分数为:"+game.getScore()+"分");
-    		
     		sentence(scoreLabel);
-    		
     	}
 	}
 	
@@ -88,7 +78,6 @@ public class GameFacade {
 		view.move(Game.used,MainFrame.layeredPane);
 		game.addScore();
 		scoreLabel.setText("分数为:"+game.getScore()+"分");
-		
 	}
 	
 	public void restoreTenStep(JLabel scoreLabel){
@@ -98,9 +87,10 @@ public class GameFacade {
 		game.addScore();
 		scoreLabel.setText("分数为:"+game.getScore()+"分");
 	}
+	
 	//判断是否通关或者是否失败
 	public void sentence(JLabel scoreLabel){
-		if(game.getScore()>=2048){
+		if(game.check2048()){
 			Object[] options ={ "重新开始", "退出" };  
 			int m = JOptionPane.showOptionDialog(null, "恭喜你通关啦!!", "恭喜",
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);

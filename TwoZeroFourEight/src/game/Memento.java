@@ -1,4 +1,4 @@
-package control;
+package game;
 
 class Memento {
 	private int[][] used = new int[4][4];

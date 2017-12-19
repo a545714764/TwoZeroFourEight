@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import model.Coordinates;
+import game.Coordinates;
 
 public class Number1024 extends JPanel {
 	private Coordinates coordinate;

@@ -14,33 +14,26 @@ import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import control.Game;
-import control.ViewMove;
-import model.Coordinates;
+import game.Coordinates;
+import game.Game;
+import game.ViewMove;
 import numberPanel.*;
 
 
 //单例模式:保证主窗口只有一个,不会重复
 public class MainFrame extends JFrame{
-
-	
 	private JPanel mainPanel;
 	private JPanel topPanel;
 	public static JPanel gamePanel;
 	public static JLayeredPane layeredPane;
-//	private JButton invisualButton;
 	Game game = new Game();
 	ViewMove view = new ViewMove();
+	
 	public MainFrame() throws OptionalDataException, ClassNotFoundException, IOException{
-//		invisualButton = new JButton();
-		
 		mainPanel = new JPanel();
 		gamePanel = new GamePanel();
 		layeredPane = new JLayeredPane();
 		topPanel = new TopPanel();
-		
-		
-		
 		
 		topPanel.setBounds(0, 0, 550, 40);
 		gamePanel.setBounds(20, 20, 460, 460);
@@ -54,8 +47,6 @@ public class MainFrame extends JFrame{
 		mainPanel.setLayout(null);
 		mainPanel.add(topPanel);
 		layeredPane.add(gamePanel,new Integer(100));
-//		gamePanel.add(invisualButton);
-//		invisualButton.setBounds(0, 0, 0, 0);
 		mainPanel.add(layeredPane);
 		this.repaint();
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

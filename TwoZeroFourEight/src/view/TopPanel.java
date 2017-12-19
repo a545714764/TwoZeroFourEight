@@ -10,10 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import control.GameFacade;
-import control.Caretaker;
-import control.Game;
-import control.ViewMove;
+import game.Caretaker;
+import game.Game;
+import game.GameFacade;
+import game.ViewMove;
 import sun.net.www.content.image.gif;
 
 public class TopPanel extends JPanel{
@@ -46,6 +46,7 @@ public class TopPanel extends JPanel{
 			}
 		});
 		backButton.addKeyListener(new KeyAdapter(){
+			
             public void keyReleased(KeyEvent e){
                 switch(e.getKeyCode()){
                 case KeyEvent.VK_DOWN: 
@@ -61,7 +62,6 @@ public class TopPanel extends JPanel{
                 	facade.right(scoreLabel);
                 	break;
                 default: 
-           
                 	break;
                }
             }

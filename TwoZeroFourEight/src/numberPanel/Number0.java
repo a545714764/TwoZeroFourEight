@@ -21,7 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import model.Coordinates;
+import game.Coordinates;
 
 public class Number0 extends JPanel implements  Serializable{
 	private Coordinates coordinate;
